@@ -20,6 +20,8 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+  # required by cucumber
+  gem 'database_cleaner'
 end
 
 
