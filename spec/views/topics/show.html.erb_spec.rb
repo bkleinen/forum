@@ -9,6 +9,6 @@ describe "topics/show" do
 
   it "renders attributes in <p>" do
     render
-    rendered.should contain("Title".to_s)
+    rendered.should have_content("Title".to_s)
   end
 end
