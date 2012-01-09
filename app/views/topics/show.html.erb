@@ -4,7 +4,8 @@
   <b>Title:</b>
   <%= @topic.title %>
 </p>
-
-
+<p>
+<%= link_to pluralize(@topic.posts.size, 'post'), topic_posts_path(@topic)%> 
+</p>
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>

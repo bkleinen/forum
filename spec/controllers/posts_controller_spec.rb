@@ -20,24 +20,20 @@ require 'spec_helper'
 
 describe PostsController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Post. As you add validations to Post, be sure to
-  # update the return value of this method accordingly.
   def valid_attributes
     {}
   end
-  
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # PostsController. Be sure to keep this updated too.
   def valid_session
     {}
   end
-
+  before(:each) do
+    topic = Topic.create! valid_attributes.merge(:title => "Stunt Kiting")
+    post = Post.create! valid_attributes.merge(:title => "About the Prism E3")
+    post.topic = topic 
+  end
   describe "GET index" do
     it "assigns all posts as @posts" do
-      post = Post.create! valid_attributes
-      get :index, {}, valid_session
+      get "topics/1/posts", {}, valid_session
       assigns(:posts).should eq([post])
     end
   end
