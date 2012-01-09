@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @topic = Topic.find(params[:topic_id])
+    @posts = @topic.posts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @post = @topic.posts.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +38,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:id])
+    @post = @topic.posts.find(params[:id])
   end
 
   # POST /posts
@@ -65,7 +67,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to topic_post_path(@topic,@post), notice: 'Post was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
