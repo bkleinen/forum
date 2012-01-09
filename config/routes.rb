@@ -1,4 +1,6 @@
 Forum::Application.routes.draw do
+  resources :posts
+
   resources :topics
 
   # The priority is based upon order of creation:

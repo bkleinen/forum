@@ -6,7 +6,7 @@ describe "topics/show" do
       :title => "Title"
     ))
   end
-
+  #capybara
   it "renders attributes in <p>" do
     render
     rendered.should have_content("Title".to_s)
