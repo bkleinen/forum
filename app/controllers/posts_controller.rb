@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to topic_post_path(@topic,@post), notice: 'Post was successfully created.' }
         format.json { render json: @post, status: :created, location: @post }
       else
         format.html { render action: "new" }
@@ -80,11 +80,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @topic = Topic.find(params[:topic_id])
-    @post = topic.posts.find(params[:id])
+    @post = @topic.posts.find(params[:id])
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to topic_posts_url(@topic) }
       format.json { head :ok }
     end
   end

@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe "posts/edit" do
   before(:each) do
+    @topic = assign(:topic, 
+      stub_model(Topic,
+        :title => "The Topic"
+      )
+    )
+    
     @post = assign(:post, stub_model(Post,
       :title => "MyString",
       :content => "MyString",
@@ -13,7 +19,7 @@ describe "posts/edit" do
   it "renders the edit post form" do
     render
 
-    rendered.should have_selector("form", :action => post_path(@post), :method => "post") do |form|
+    rendered.should have_selector("form", :action => topic_post_path(@topic,@post), :method => "post") do |form|
       form.should have_selector("input#post_title", :name => "post[title]")
       form.should have_selector("input#post_content", :name => "post[content]")
       form.should have_selector("input#post_answer_to", :name => "post[answer_to]")

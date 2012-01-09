@@ -24,6 +24,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :development do
+  gem 'launchy'
+end
+
 
 
 # To use ActiveModel has_secure_password

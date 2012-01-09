@@ -7,5 +7,8 @@
 <p>
 <%= link_to pluralize(@topic.posts.size, 'post'), topic_posts_path(@topic)%> 
 </p>
+<p>
+	<%= link_to 'Create new Post', new_topic_post_path(@topic)%>
+</p>
 <%= link_to 'Edit', edit_topic_path(@topic) %> |
 <%= link_to 'Back', topics_path %>
