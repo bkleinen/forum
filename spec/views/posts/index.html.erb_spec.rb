@@ -4,14 +4,14 @@ describe "posts/index" do
   before(:each) do
     assign(:posts, [
       stub_model(Post,
-        :title => "Title",
-        :content => "Content",
+        :title => "Post 1",
+        :content => "Post 1 Content",
         :answer_to => 1,
         :user_id => 1
       ),
       stub_model(Post,
-        :title => "Title",
-        :content => "Content",
+        :title => "Second Post",
+        :content => "Content of Second Post",
         :answer_to => 1,
         :user_id => 1
       )
@@ -20,9 +20,8 @@ describe "posts/index" do
 
   it "renders a list of posts" do
     render
-    rendered.should have_selector("tr>td", :content => "Title".to_s, :count => 2)
-    rendered.should have_selector("tr>td", :content => "Content".to_s, :count => 2)
-    rendered.should have_selector("tr>td", :content => 1.to_s, :count => 2)
-    rendered.should have_selector("tr>td", :content => 1.to_s, :count => 2)
-  end
+    rendered.should have_content("Post 1")
+    rendered.should have_content("Second Post")
+  #  rendered.find(:xpath,'//tr[2]/td').should be "Post 1"
+    end
 end
