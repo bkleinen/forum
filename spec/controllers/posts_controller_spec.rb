@@ -60,7 +60,7 @@ describe PostsController do
 
   describe "POST create" do
     describe "with valid params" do
-      it "creates a new Post" do
+      it "creates and saves the post" do
         expect {
           post :create, {:post => valid_attributes, :topic_id => @topic.to_param}, valid_session
         }.to change(Post, :count).by(1)

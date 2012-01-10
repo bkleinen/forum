@@ -9,6 +9,7 @@ describe "Topics" do
     end
     # use this example to play around with selenium driver
     # , :js => true 
+    # and play with use_database_cleaner in spec_helper.rb
     it "displays topics" do
       Topic.create!(:title => "Something to talk about")
       visit topics_path
