@@ -7,6 +7,13 @@ describe "Topics" do
       click_link "New Topic"
       page.should have_content("New topic")
     end
+    # use this example to play around with selenium driver
+    # , :js => true 
+    it "displays topics" do
+      Topic.create!(:title => "Something to talk about")
+      visit topics_path
+      page.should have_content("Something to talk about")
+    end
     it "supports js", :js => true do
       visit topics_path
       click_link "test js"
