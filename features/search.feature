@@ -1,6 +1,7 @@
 Feature: Search
   Scenario: Find Posts by content
     Given a User has posted the following posts:
+       | content |
        | About Cucumber |
        | How to test a web application |
        | Behaviour Driven Design vs. Test Driven Design |
