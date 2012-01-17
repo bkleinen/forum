@@ -3,7 +3,10 @@ class Post < ActiveRecord::Base
   
   def self.containing(content)
     if content
-     return where('title LIKE ? or content LIKE ?', "%#{content}%", "%#{content}%")
+     posts =  where('title LIKE ? or content LIKE ?', "%#{content}%", "%#{content}%")
+     return posts.map { |post|
+       [post.topic,post]
+     }
    else 
      return []
    end

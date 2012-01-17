@@ -10,9 +10,9 @@
 		<th>Topic</th>
 		<th>Post</th>
 	</tr>
-  <% @posts.each do |post| %>
+  <% @topic_posts.each do |topic,post| %>
     <tr>
-		<td class ="result_topic"><%=post.topic.title%></td>
+		<td class ="result_topic"><%=topic.title%></td>
 		<td class ="result_post"><%= link_to post.title, topic_post_path(post.topic,post) %></td>
     </tr>
   <% end %>
