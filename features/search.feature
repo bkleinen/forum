@@ -19,7 +19,8 @@ Feature: Search
 	    | Behaviour Driven Design vs. Test Driven Design | bla bla Test |
 	    | About the Gerkhin Language | Bla bla bla Test |
 	 When I search for "test"
-	 Then the results should be:
+	 Then the topic should be contained in each line:
+	    | Topic     | Post |
 		| The Topic | How to test a web application |
 		| The Topic | Behaviour Driven Design vs. Test Driven Design | 
 		| The Topic | About the Gerkhin Language |
