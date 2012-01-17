@@ -5,7 +5,7 @@ When /^I search for "([^"]*)"$/ do |query|
 end
 
 Then /^the results should be:$/ do |expected_results|
-  results = page.all('td.result_post').map do |td|
+  results = page.all('.result_post').map do |td|
     [td.text]
   end
   # table is a Cucumber::Ast::Table - it has a diff! method
@@ -13,10 +13,10 @@ Then /^the results should be:$/ do |expected_results|
 end
 
 Then /^the topic should be contained in each line:$/ do |expected_results|
-    topics = page.all('td.result_topic').map do |td|
+    topics = page.all('.result_topic').map do |td|
       td.text
     end
-    posts = page.all('td.result_post').map do |td|
+    posts = page.all('.result_post').map do |td|
       td.text
     end
     results = [["Topic", "Post"]] + (0..topics.length-1).map {|i| [topics[i],posts[i]]}
