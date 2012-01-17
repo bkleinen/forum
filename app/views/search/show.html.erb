@@ -6,8 +6,7 @@
 </form>
 <hr>
 <ol class="results">
-  <li><a href="/topics/2/posts/20">How to test a web application</a></li>
-  <li><a href="/topics/2/posts/21">SHOULD NOT BE HERE</a></li>
-  <li><a href="/topics/2/posts/23">Behaviour Driven Design vs. Test Driven Design</a></li>
-  <li><a href="/topics/2/posts/24">About the Gerkhin Language</a></li>
-</ol>
+  <% @posts.each do |post| %>
+  <li><%= link_to post.title, topic_post_path(post.topic,post) %></li>
+  <% end %>
+ </ol>
